@@ -176,7 +176,7 @@ def sum_zero(list1):
             key = [num, -num]
             working_dict[key] = working_dict.get(key, 0) + 1
 
-    return return_list
+    return working_dict
 
 def find_duplicates(words):
     """Given a list of words, return the list with duplicates removed.
@@ -220,7 +220,7 @@ def word_length(words):
     for word in words:
         key = len(word) 
         if key in word_len_dict:
-            word_len_dict[key] = word_len_dict[key] + word
+            word_len_dict[key] = word_len_dict[key] + [word]
         else:
             word_len_dict[key] = [word]
     return_list = word_len_dict.items()
