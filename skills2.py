@@ -169,14 +169,14 @@ def sum_zero(list1):
 
     """
     list1_sort = sorted(list1)
-    working_dict = {}
-    return_list = []
-    for num in list1_sort:
-        if (-num) in list1_sort:
-            key = [num, -num]
-            working_dict[key] = working_dict.get(key, 0) + 1
-
-    return working_dict
+    working_dict={}
+    for numbers in list1_sort:
+        for nums in list1_sort:
+            if numbers+nums==0:
+                if (nums, numbers) not in working_dict: 
+                    working_dict[(numbers,nums)] = ""
+    return_list = working_dict
+    return return_list
 
 def find_duplicates(words):
     """Given a list of words, return the list with duplicates removed.
@@ -241,6 +241,16 @@ def adv_word_length_sorted_words(words):
         [(1, ['a']), (2, ['an', 'ok']), (3, ['day']), (5, ['apple'])]
 
     """
+    sort_words = sorted(words)
+    word_len_dict = {}
+    for word in sort_words:
+        key = len(word) 
+        if key in word_len_dict:
+            word_len_dict[key] = word_len_dict[key] + [word]
+        else:
+            word_len_dict[key] = [word]
+    return_list = word_len_dict.items()
+    return return_list
 
     return []
 
